@@ -5,7 +5,12 @@ import math
 def clear():
    entry.delete("1.0","end")
 ##
-
+## clear all def
+def ClearAll():
+        entry.delete("1.0","end")
+        CalcDis.delete("0","end")
+        RangeInput.delete("0","end")
+##
 ## Addition def
 def AddCalc():
         Rangeinp = RangeInput.get()
@@ -64,7 +69,7 @@ def DivCalc():
 
 ## setup
 screen = Tk()
-screen.geometry("400x500")
+screen.geometry("425x350")
 screen.title("Epic Table Calculator")
 EnterNum = Label(screen,text="Enter your number here: ")
 entry = Text(screen,height=15,width=15)
@@ -73,7 +78,8 @@ SubButton = Button(screen, text="Subtraction",command=SubCalc)
 MulButton = Button(screen, text="Multiplication",command=MultiCalc)
 DivButton = Button(screen, text="Division",command=DivCalc)
 CalcDis = Entry(screen)
-Clear = Button(screen,text="Clear",command=clear)
+Clear = Button(screen,text="Clear Output",command=clear)
+Clearall = Button(screen,text="Clear All",command=ClearAll)
 RangeNums = Label(screen,text="Enter range (ex. '12 20'): ")
 RangeInput = Entry(screen)
 ##
@@ -83,10 +89,11 @@ EnterNum.grid(row=0, column=0)
 entry.grid(row=2, column=1,rowspan=15) 
 AddButton.grid(row=0, column=2)  
 SubButton.grid(row=1, column=2) 
-MulButton.grid(row=2, column=2) 
-DivButton.grid(row=3, column=2) 
+MulButton.grid(row=0, column=3) 
+DivButton.grid(row=1, column=3) 
 CalcDis.grid(row=0,column=1)
-Clear.grid(row=4,column=2)
+Clear.grid(row=2,column=0)
+Clearall.grid(row=3,column=0)
 RangeNums.grid(row=1,column=0)
 RangeInput.grid(row=1,column=1)
 screen.mainloop()
